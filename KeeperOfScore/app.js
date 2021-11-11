@@ -20,8 +20,13 @@ p1Button.addEventListener('click', function () {
 })
 
 p2Button.addEventListener('click',function (){
-    if (p2Score !== winningScore) {
+    if(!isGameOver){
         p2Score += 1
+        if (p2Score == winningScore) {
+            isGameOver = true
+        }
         p2Display.textContent = p2Score;
     }
+
+
 })
