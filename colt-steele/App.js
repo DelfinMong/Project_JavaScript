@@ -1,22 +1,22 @@
-// fetch('https://api.cryptonator.com/api/ticker/btc-usd')
-//     .then(res => {
-//       console.log('RESPONE, WAITING TO PARSE', res)
-//       return res.json()
-//     })
-//     .then( data => {
-//       console.log('DATA PARSED...', data)
-//       console.log(data.ticker.price)
-//     })
-//     .catch( e => {
-//       console.log('OH NO!! ERROR!!', e)
-//     })
 
-const fetchBitcoin = async () => {
-  try {
-    const res = await fetch('https://api.cryptonator.com/api/ticker/btc-usd')
-    const data = await res.json();
-    console.log(data.ticker.price)
-  } catch (e) {
-      console.log('SOMETHING WENT WRONG', e)
+const form =  document.querySelector('#searchForm');
+form.addEventListener('submit', async function(e) {
+  e.preventDefault();
+  // console.dir(form.elements.query.value);
+  const searchTerm = form.elements.query.value;
+  const res = await axios.get(`https://api.tvmaze.com/search/shows?q=${searchTerm}`)
+  console.log(res.data[0].show.image.medium)
+  makeImages(res.data)
+  form.elements.query.value = '';
+})
+
+const makeImages = (shows) => {
+  for (let result of shows){
+    if(result.show.image){
+      const img = document.createElement('IMG');
+    img.src = result.show.image.medium;
+    document.body.append(img)
+    }
+    
   }
 }
