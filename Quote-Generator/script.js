@@ -1,5 +1,6 @@
-let apiQuotes = []
+/ --------------------- API quotes --------------------------/
 
+let apiQuotes = []
 
 // Show New Quote
 function newQuote(){
@@ -24,3 +25,14 @@ async function getQuotes() {
 
 // On Load
 getQuotes();
+
+/ ------------------- local quotes ------------------------/
+
+// Show New Quote
+function localnewQuote(){
+  //Pick random quote from apiQuotes array
+  const quote = localQuotes[Math.floor(Math.random() * localQuotes.length )];
+  console.log(quote);
+}
+
+localnewQuote();
