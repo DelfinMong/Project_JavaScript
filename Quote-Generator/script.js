@@ -1,3 +1,11 @@
+const quoteContainer = document.getElementById('quote-container');
+
+
+
+
+
+
+
 / --------------------- API quotes --------------------------/
 
 let apiQuotes = []
