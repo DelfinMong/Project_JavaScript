@@ -19,6 +19,7 @@ function newQuote(){
   //Pick random quote from apiQuotes array
   const quote = apiQuotes[Math.floor(Math.random() * apiQuotes.length )];
   authorText.textContent = quote.author;
+  quoteText.textContent = quote.text;
   console.log(quote)
 }
 
