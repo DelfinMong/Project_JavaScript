@@ -4,12 +4,6 @@ const authorText = document.getElementById('author');
 const twwitterBtn = document.getElementById('twitter');
 const newQuoteBtn = document.getElementById('new-quote');
 
-
-
-
-
-
-
 / --------------------- API quotes --------------------------/
 
 let apiQuotes = []
@@ -56,7 +50,9 @@ function tweetQuote(){
   window.open(twitterURL,'_blank');
 }
 
-// 
+// Event Listeners
+newQuoteBtn.addEventListener('click',newQuote)
+twwitterBtn.addEventListener('click',tweetQuote)
 
 // On Load
 getQuotes();
