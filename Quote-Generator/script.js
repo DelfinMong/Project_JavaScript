@@ -18,7 +18,8 @@ let apiQuotes = []
 function newQuote(){
   //Pick random quote from apiQuotes array
   const quote = apiQuotes[Math.floor(Math.random() * apiQuotes.length )];
-  console.log(quote);
+  authorText.textContent = quote.author;
+  console.log(quote)
 }
 
 
@@ -44,7 +45,7 @@ getQuotes();
 function localnewQuote(){
   //Pick random quote from apiQuotes array
   const quote = localQuotes[Math.floor(Math.random() * localQuotes.length )];
-  console.log(quote);
+  // console.log(quote);
 }
 
 localnewQuote();
