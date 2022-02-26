@@ -50,8 +50,25 @@ async function getQuotes() {
   }
 }
 
+// Tweet Quote
+function tweetQuote(){
+  const twitterURL = `https://twitter.com/intent/tweet?text=${quoteText.textContent} - ${authorText.textContent}`;
+  window.open(twitterURL,'_blank');
+}
+
+// 
+
 // On Load
 getQuotes();
+
+
+
+
+
+
+
+
+
 
 / ------------------- local quotes ------------------------/
 
