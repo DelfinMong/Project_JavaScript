@@ -5,26 +5,25 @@ const twwitterBtn = document.getElementById('twitter');
 const newQuoteBtn = document.getElementById('new-quote');
 const loader = document.getElementById('loader')
 
-/ --------------------- API quotes --------------------------/
+/* --------------------- API quotes --------------------------*/
 
 let apiQuotes = []
 
-// Show Loading
+//Show Loading
 function loading() {
-  loading.hidden = false;
+  loader.hidden = false;
   quoteContainer.hidden = true;
 }
 
 // Hide loading
 function complete(){
   quoteContainer.hidden = false;
-  loading.hidden = true;
+  loader.hidden = true;
 }
-
-
 
 // Show New Quote
 function newQuote(){
+  loading()
   //Pick random quote from apiQuotes array
   const quote = apiQuotes[Math.floor(Math.random() * apiQuotes.length )];
 
@@ -41,13 +40,18 @@ function newQuote(){
   } else {
     quoteText.classList.remove('long-quote')
   }
+
+  // Set Quote, Hide Loader
+
   quoteText.textContent = quote.text;
+  complete()
   console.log(quote)
 }
 
 
 // Get Quotes From API
 async function getQuotes() {
+  loading()
   const apiUrl = 'https://type.fit/api/quotes'
   try {
       const response = await fetch(apiUrl);
@@ -81,13 +85,14 @@ getQuotes();
 
 
 
-/ ------------------- local quotes ------------------------/
 
-// Show New Quote
-function localnewQuote(){
-  //Pick random quote from apiQuotes array
-  const quote = localQuotes[Math.floor(Math.random() * localQuotes.length )];
-  // console.log(quote);
-}
+/* ------------------- local quotes ------------------------*/
 
-localnewQuote();
+// // Show New Quote
+// function localnewQuote(){
+//   //Pick random quote from apiQuotes array
+//   const quote = localQuotes[Math.floor(Math.random() * localQuotes.length )];
+//   // console.log(quote);
+// }
+
+// localnewQuote();
