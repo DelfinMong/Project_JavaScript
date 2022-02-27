@@ -3,10 +3,19 @@ const quoteText = document.getElementById('quote');
 const authorText = document.getElementById('author');
 const twwitterBtn = document.getElementById('twitter');
 const newQuoteBtn = document.getElementById('new-quote');
+const loader = document.getElementById('loader')
 
 / --------------------- API quotes --------------------------/
 
 let apiQuotes = []
+
+// Show Loading
+function loading() {
+  loading.hidden = false;
+  quoteContainer.hidden = true;
+}
+
+
 
 // Show New Quote
 function newQuote(){
