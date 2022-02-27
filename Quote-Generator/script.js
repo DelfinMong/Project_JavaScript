@@ -15,6 +15,12 @@ function loading() {
   quoteContainer.hidden = true;
 }
 
+// Hide loading
+function complete(){
+  quoteContainer.hidden = false;
+  loading.hidden = true;
+}
+
 
 
 // Show New Quote
